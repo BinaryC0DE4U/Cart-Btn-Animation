@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Animation</title>
+    <link rel="icon" href="Shopping.png" type="image/x-icon">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: -30px;
+            position: relative;
+            z-index: 10;
+            margin-top: 80px;
+        }
+
+        /* Default size */
+        .animation-container {
+            width: 98%;
+            max-width: 600px;
+            height: auto;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .connect-with-me {
+            margin-top: 150px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .social-links {
+            margin-top: 5px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .social-icon {
+            text-decoration: none;
+            font-size: 1.5em;
+            color: #000;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .animation-container {
+                max-width: 650px;
+                /* Slightly bigger */
+            }
+
+            .title {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .animation-container {
+                max-width: 180vw;
+                /* Cover 90% of the viewport width */
+            }
+
+            .title {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="title">Interactive Button Animation</div>
+
+    <div class="animation-container" onclick="playAnimation()">
+        <dotlottie-player id="lottiePlayer"
+            src="https://lottie.host/4066b828-e09a-4822-9a4a-4598d88379f4/ltN5EyF2QD.lottie" background="transparent"
+            speed="0.7" <!-- Slower animation -->
+            style="width: 100%; height: 100%"
+            direction="1"
+            playMode="forward">
+        </dotlottie-player>
+    </div>
+
+    <script>
+        let audio = new Audio('Shopping.mp3'); // Ensure Shopping.mp3 is in the same directory
+        audio.playbackRate = 1.2; // Play at 1.5x speed
+
+        function playAnimation() {
+            let player = document.getElementById('lottiePlayer');
+            player.stop();
+            player.play();
+            audio.currentTime = 0; // Restart audio if clicked again
+            audio.play();
+        }
+
+    </script>
+
+    <div class="connect-with-me">
+        <h3>To Connect With Me</h3>
+    </div>
+
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/mr-dhananjay-patil-0172902a2/" target="_blank"
+            class="social-icon linkedin">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/BinaryC0DE4U" target="_blank" class="social-icon github">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    </div>
+
+</body>
+
+</html>
